@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
-
+import axios from 'axios'
 
 // const bcrypt = require('bcrypt')
 // const saltRounds = 8
@@ -10,7 +10,7 @@ function Register() {
     username: "",
     email: "",
     password: "",
-    "confirm-password": "",
+    // "confirm-password": "",
   });
 
   const handleChangeUE = (event) => {
@@ -24,7 +24,14 @@ function Register() {
   // }
 
   const handleSubmit = (event) => {
-    console.log("nunget");
+    console.log(formValues)
+    axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/register', formValues)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   };
 
   return (
