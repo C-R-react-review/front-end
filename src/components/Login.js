@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Login() {
   const [formValues, setFormValue] = useState({
@@ -9,11 +10,18 @@ function Login() {
   })
 
   const handleChange = (event) => {
-    setFormValue({...formValues,[event.target.username]: event.target.value})
+    setFormValue({...formValues,[event.target.name]: event.target.value})
   }
 
-  async function handleSubmit(event) {
+  const handleSubmit = (event) => {
     console.log(formValues)
+    axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/login', formValues)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
 
