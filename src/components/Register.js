@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 
+
 // const bcrypt = require('bcrypt')
 // const saltRounds = 8
 
@@ -70,7 +71,6 @@ function Register() {
               name="confirm-password"
             />
           </Form.Field>
-          <Checkbox label="I agree to the Terms and Conditions" />
         </Form.Field>
         <Button type="submit">Register</Button>
       </Form>
