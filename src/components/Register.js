@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 // const bcrypt = require('bcrypt')
 // const saltRounds = 8
 
 function Register() {
+  const history = useHistory();
+
   const [formValues, setFormValues] = useState({
     username: "",
     email: "",
@@ -27,7 +30,8 @@ function Register() {
     console.log(formValues)
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/register', formValues)
     .then(res => {
-      console.log(res)
+      localStorage.setItem('token', res.data.token)
+      history.push('/')
     })
     .catch(err => {
       console.log(err)
