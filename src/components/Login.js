@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 function Login() {
+  const history = useHistory()
+  
   const [formValues, setFormValue] = useState({
     'username': '',
     'password': ''
@@ -14,10 +16,11 @@ function Login() {
   }
 
   const handleSubmit = (event) => {
-    console.log(formValues)
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/login', formValues)
     .then(res => {
       console.log(res)
+      localStorage.setItem('Token', res.data.token)
+      history.push("/")
     })
     .catch(err => {
       console.log(err)
