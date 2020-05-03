@@ -18,14 +18,13 @@ function Login() {
   const handleSubmit = (event) => {
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/login', formValues)
     .then(res => {
-      console.log(res)
-      localStorage.setItem('Token', res.data.token)
+      localStorage.setItem('token', res.data.token)
       history.push("/")
     })
     .catch(err => {
       console.log(err)
     })
-  }
+  };
 
 
 
