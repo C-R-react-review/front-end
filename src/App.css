@@ -58,3 +58,20 @@
   color: black;
   font-weight: 600;
 }
+
+/* Feed */
+
+.Feed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 5%;
+  align-items: flex-end;
+}
+
+/* Card */
+
+.card {
+  height: 20vw;
+  margin: 0;
+}
