@@ -3,9 +3,6 @@ import { Button, Form } from "semantic-ui-react";
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 
-// const bcrypt = require('bcrypt')
-// const saltRounds = 8
-
 function Register() {
   const history = useHistory();
 
@@ -13,12 +10,10 @@ function Register() {
     username: "",
     email: "",
     password: "",
-    // "confirm-password": "",
   });
 
   const handleChangeUE = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
-    console.log(formValues);
   };
 
   // const handleChangeP = (event) => {
@@ -27,7 +22,6 @@ function Register() {
   // }
 
   const handleSubmit = (event) => {
-    console.log(formValues)
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/register', formValues)
     .then(res => {
       localStorage.setItem('token', res.data.token)
