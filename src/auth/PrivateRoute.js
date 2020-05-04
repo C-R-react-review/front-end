@@ -1,13 +1,11 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import Login from "../components/Login";
 import axios from "axios";
 
 
-const PrivateRoute = (component) => {
+const PrivateRoute = ({component: Component, ...rest}) => {
   function isAuthd() {
     const token = window.localStorage.getItem("token");
-  
     axios
       .post("https://sample-backend-c-r.herokuapp.com/api/auth/authenticate", { token })
       .then((res) => {
@@ -17,11 +15,27 @@ const PrivateRoute = (component) => {
         return false;
       });
   }
-
-  const authd = isAuthd()
-
-  console.log(authd)
-  return true ? <Route component={component.component} /> : <Redirect to="/login" />
+  console.log(isAuthd())
+  return <Route {...rest} render={(props) => (isAuthd() ?  <Component {...props} /> : <Redirect to="/login" />)} /> 
 };
 
 export default PrivateRoute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
