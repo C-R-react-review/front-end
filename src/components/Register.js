@@ -7,19 +7,15 @@ function Register() {
   const history = useHistory();
 
   const [formValues, setFormValues] = useState({
-    username: "",
-    email: "",
-    password: "",
+    "username": "",
+    "email": "",
+    "password": "",
   });
 
   const handleChangeUE = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
-  // const handleChangeP = (event) => {
-  //   setFormValues({...formValues, [event.target.name]: bcrypt.hash(event.target.value, saltRounds)})
-  //   console.log(formValues)
-  // }
 
   const handleSubmit = (event) => {
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/register', formValues)
