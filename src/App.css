@@ -69,9 +69,17 @@
   align-items: flex-end;
 }
 
+.Feed:last-child {
+  align-items: flex-start;
+}
+
 /* Card */
 
 .card {
   height: 20vw;
   margin: 0;
+}
+
+.user-card {
+  z-index: 9999999;
 }
