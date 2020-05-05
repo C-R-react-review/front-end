@@ -8,6 +8,7 @@ import Feed from './components/Feed';
 import Login from './components/Login';
 import Register from './components/Register';
 import PrivateRoute from './auth/PrivateRoute';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -19,8 +20,8 @@ function App() {
       <PrivateRoute exact path='/' component={Feed} setLoggedIn={setLoggedIn}/>
       <Route path='/login' component={Login} setLoggedIn={setLoggedIn}/>
       <Route path='/register' component={Register} setLoggedIn={setLoggedIn}/>
-      {/* <Route path='/profile' component={Feed} />
-      <Route path='/dashboard' component={Feed} /> */}
+      <Route path='/profile' component={Profile} />
+      {/* <Route path='/dashboard' component={Feed} />  */}
       <Footer />
     </div>
   );
