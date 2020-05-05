@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 
@@ -11,12 +11,15 @@ import PrivateRoute from './auth/PrivateRoute';
 import Profile from './components/Profile';
 
 function App() {
+
+  const [loggedIn, setLoggedIn] = useState(false)
+
   return (
     <div className="App">
-      <Navbar />
-      <PrivateRoute exact path='/' component={Feed} />
-      <Route path='/login' component={Login} />
-      <Route path='/register' component={Register} />
+      <Navbar loggedIn={loggedIn}/>
+      <PrivateRoute exact path='/' component={Feed} setLoggedIn={setLoggedIn}/>
+      <Route path='/login' component={Login} setLoggedIn={setLoggedIn}/>
+      <Route path='/register' component={Register} setLoggedIn={setLoggedIn}/>
       <Route path='/profile' component={Profile} />
       {/* <Route path='/dashboard' component={Feed} />  */}
       <Footer />
