@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import axios from "axios";
 
+
 function Feed() {
+
+
   const [userList, setUserList] = useState([]);
   useEffect(() => {
     axios
@@ -21,7 +24,6 @@ function Feed() {
   return (
     <div className="Feed">
       {userList.map((e) => {
-        console.log(e)
        return <Card className="user-card" user={e} />
       })}
     

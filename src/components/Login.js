@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
-function Login() {
+
+function Login({setLoggedIn}) {
+  
   const history = useHistory()
   
   const [formValues, setFormValue] = useState({
