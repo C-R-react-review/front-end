@@ -75,3 +75,19 @@
   height: 20vw;
   margin: 0;
 }
+
+/* Profile */
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 240px;
+}
+
+.flex-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 240px;
+}
