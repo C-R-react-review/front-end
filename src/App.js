@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar loggedIn={loggedIn}/>
+      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <PrivateRoute exact path='/' component={Feed} setLoggedIn={setLoggedIn}/>
       <Route path='/login' component={Login} setLoggedIn={setLoggedIn}/>
       <Route path='/register' component={Register} setLoggedIn={setLoggedIn}/>
