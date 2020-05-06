@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
+import { isAuthd } from '../helpers/isAuthd'
 
 
-function Login({setLoggedIn}) {
-  
+function Login({ setLoggedIn }) {
+  useEffect(() => {
+    setLoggedIn(isAuthd())
+  }, [])
   const history = useHistory()
   
   const [formValues, setFormValue] = useState({

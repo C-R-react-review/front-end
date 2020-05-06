@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import axios from "axios";
+import { isAuthd } from '../helpers/isAuthd'
 
+function Feed({setLoggedIn}) {
 
-function Feed() {
-
+  useEffect(() => {
+    setLoggedIn(isAuthd())
+  }, [])
 
   const [userList, setUserList] = useState([]);
   useEffect(() => {

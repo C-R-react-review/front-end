@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <PrivateRoute exact path='/' component={Feed} setLoggedIn={setLoggedIn}/>
-      <Route path='/login' component={Login} setLoggedIn={setLoggedIn}/>
+      <Route path='/login' render={(props) => <Login {...props} setLoggedIn={setLoggedIn}/>} />
       <Route path='/register' component={Register} setLoggedIn={setLoggedIn}/>
       <Route path='/profile' component={Profile} />
       {/* <Route path='/dashboard' component={Feed} />  */}
