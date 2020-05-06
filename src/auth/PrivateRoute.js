@@ -4,10 +4,7 @@ import { isAuthd } from '../helpers/isAuthd'
 
 
 const PrivateRoute = ({component: Component, setLoggedIn, ...rest}) => {
-  useEffect(() => {
-    setLoggedIn(isAuthd())
-  }, [setLoggedIn])
-  return <Route {...rest} render={(props) => (isAuthd() ?  <Component {...props} /> : <Redirect to="/login" />)} /> 
+  return <Route {...rest} render={(props) => (isAuthd() ?  <Component {...props} setLoggedIn={setLoggedIn}/> : <Redirect to="/login" />)} /> 
 };
 
 export default PrivateRoute

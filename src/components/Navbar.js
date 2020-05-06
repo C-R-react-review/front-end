@@ -13,7 +13,7 @@ function Navbar({ loggedIn, setLoggedIn }) {
   const logout = () => {
     console.log(loggedIn)
     localStorage.removeItem('token')
-    setLoggedIn(isAuthd())
+    setLoggedIn(false)
   }
 
   return (
