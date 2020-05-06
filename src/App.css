@@ -80,6 +80,23 @@
   margin: 0;
 }
 
+<<<<<<< HEAD
+/* Profile */
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 240px;
+}
+
+.flex-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 240px;
+=======
 .user-card {
   z-index: 9999999;
+>>>>>>> 1678334b750d6408e8a48395418f5155867e699a
 }

@@ -3,7 +3,7 @@ import React from "react";
 function Profile() {
   return (
     <div className="Profile">
-      <div>
+      <div className="flex-container">
       <div>
         <h1>Image</h1>
       </div>
@@ -12,7 +12,7 @@ function Profile() {
       </div>
       </div>
      
-      <div>
+      <div className="flex-container2">
       <div>
         <h2>Friends</h2>
       </div>
