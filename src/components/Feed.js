@@ -15,17 +15,14 @@ function Feed() {
       });
   },[]);
 
-// const texas = {
-//   population: 23123,
-//   capital: 'Austen',
-// }
-// console.log(texas.capital)
-  console.log(userList);
+
+
 
   return (
     <div className="Feed">
       {userList.map((e) => {
-       return <Card username={e.username} email={e.email} />
+        console.log(e)
+       return <Card className="user-card" user={e} />
       })}
     
     </div>

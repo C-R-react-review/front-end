@@ -69,6 +69,10 @@
   align-items: flex-end;
 }
 
+.Feed:last-child {
+  align-items: flex-start;
+}
+
 /* Card */
 
 .card {
@@ -76,6 +80,7 @@
   margin: 0;
 }
 
+<<<<<<< HEAD
 /* Profile */
 
 .flex-container {
@@ -90,4 +95,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
   height: 240px;
+=======
+.user-card {
+  z-index: 9999999;
+>>>>>>> 1678334b750d6408e8a48395418f5155867e699a
 }

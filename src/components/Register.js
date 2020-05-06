@@ -18,6 +18,7 @@ function Register() {
 
 
   const handleSubmit = (event) => {
+    console.log(formValues)
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/register', formValues)
     .then(res => {
       localStorage.setItem('token', res.data.token)
@@ -62,7 +63,7 @@ function Register() {
               name="password"
             />
           </Form.Field>
-          <Form.Field>
+          {/* <Form.Field>
             <label>Confirm Password</label>
             <input
               type="password"
@@ -71,7 +72,7 @@ function Register() {
               onChange={(event) => handleChangeUE(event)}
               name="confirm-password"
             />
-          </Form.Field>
+          </Form.Field> */}
         </Form.Field>
         <Button type="submit">Register</Button>
       </Form>
