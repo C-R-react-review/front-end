@@ -7,7 +7,7 @@ import '../App.css';
 const UserCard = ({ user, ...rest }) => {
 
   function toProfile(event) {
-    return <Route {...rest} render={(props) => <Profile {...props} />} />
+    return <Route {...rest} render={(props) => <Profile {...props} user={user}/>} />
   }
 
   return (

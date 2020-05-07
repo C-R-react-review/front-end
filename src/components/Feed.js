@@ -6,7 +6,12 @@ import { isAuthd } from '../helpers/isAuthd'
 function Feed({setLoggedIn}) {
 
   useEffect(() => {
-    setLoggedIn(isAuthd())
+    async function getStatus() {
+      const status = await isAuthd()
+      console.log(status)
+      setLoggedIn(status)
+    }
+    getStatus()
   }, [])
 
   const [userList, setUserList] = useState([]);
