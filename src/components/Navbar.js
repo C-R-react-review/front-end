@@ -6,21 +6,19 @@ import { isAuthd } from '../helpers/isAuthd';
 
 
 function Navbar({ loggedIn, setLoggedIn }) {
-  useEffect(() => {
-    setLoggedIn(isAuthd())
-  }, [setLoggedIn])
+  // useEffect(() => {
+  //   setLoggedIn(isAuthd())
+  // }, [setLoggedIn])
 
-  const logout = () => {
-    console.log(loggedIn)
+  async function logout() {
     localStorage.removeItem('token')
-    setLoggedIn(false)
   }
 
   return (
     <div className="Navbar">
       <Link to='/' className="logo-img"><img src={Logo} alt='logo' className="logo-img"/></Link>
 
-      { loggedIn ? <Link to='/login' className="login-navbar" onClick={logout}>Logout</Link> : <Link to='/login' className="login-navbar" >Login</Link>}
+      { loggedIn ? <Link onClick={logout} to='/login' className="login-navbar" >Logout</Link> : <Link to='/login' className="login-navbar" >Login</Link>}
 
     </div>
   );

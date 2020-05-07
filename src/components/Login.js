@@ -6,9 +6,16 @@ import { isAuthd } from '../helpers/isAuthd'
 
 
 function Login({ setLoggedIn }) {
+
   useEffect(() => {
-    setLoggedIn(isAuthd())
+    async function getStatus() {
+      const status = await isAuthd()
+      console.log(status)
+      setLoggedIn(status)
+    }
+    getStatus()
   }, [])
+
   const history = useHistory()
   
   const [formValues, setFormValue] = useState({
