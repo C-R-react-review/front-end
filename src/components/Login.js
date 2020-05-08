@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'semantic-ui-react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { isAuthd } from '../helpers/isAuthd'
 
 
-function Login({ setLoggedIn }) {
+function Login({ history, setLoggedIn }) {
 
-  useEffect(() => {
-    async function getStatus() {
-      const status = await isAuthd()
-      console.log(status)
-      setLoggedIn(status)
-    }
-    getStatus()
-  }, [])
+  // useEffect(() => {
+  //   async function getStatus() {
+  //     const status = await isAuthd()
+  //     console.log(status)
+  //     setLoggedIn(status)
+  //   }
+  //   getStatus()
+  // }, [])
 
-  const history = useHistory()
+
   
   const [formValues, setFormValue] = useState({
     'username': '',
