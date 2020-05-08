@@ -95,3 +95,18 @@
   justify-content: space-around;
   height: 240px;
 }
+
+/* Profile Pic */
+  
+.profile_pic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 240px;
+}
+
+/* User's Info*/
+
+.user_info {
+  padding: 4rem;
+}
