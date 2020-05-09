@@ -5,7 +5,7 @@ import axios from 'axios'
 import { isAuthd } from '../helpers/isAuthd'
 
 
-function Login({ history, setLoggedIn }) {
+function Login({ history, setLoggedIn, ...rest }) {
 
   // useEffect(() => {
   //   async function getStatus() {
@@ -51,7 +51,7 @@ function Login({ history, setLoggedIn }) {
         <input  type='password' placeholder='Password' value={formValues.password} onChange={event => handleChange(event)} name='password'/>
       </Form.Field>
       <Button type='submit'>Login</Button>
-      <Link to='/register' class="ui button">Not a user? Sign Up</Link>
+      <Link to='/register' className="ui button">Not a user? Sign Up</Link>
     </Form>
   )
 }

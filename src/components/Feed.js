@@ -5,6 +5,7 @@ import { isAuthd } from '../helpers/isAuthd'
 
 function Feed({setLoggedIn}) {
 
+  const [userList, setUserList] = useState([]);
   useEffect(() => {
     async function getStatus() {
       const status = await isAuthd()
@@ -12,10 +13,6 @@ function Feed({setLoggedIn}) {
       setLoggedIn(status)
     }
     getStatus()
-  }, [])
-
-  const [userList, setUserList] = useState([]);
-  useEffect(() => {
     axios
       .get("https://sample-backend-c-r.herokuapp.com/api/users")
       .then((res) => {
@@ -28,7 +25,7 @@ function Feed({setLoggedIn}) {
 
 
 
-
+  console.log(userList)
   return (
     <div className="Feed">
       {userList.map((e) => {
