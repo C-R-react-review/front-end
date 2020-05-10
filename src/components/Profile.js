@@ -6,11 +6,11 @@ function Profile() {
   return (
     <div className="Profile">
       <div className="flex-container">
-        <div>
+        <div className="profile_pic_div">
           <img src={Profile_pic} alt="profile_pic" className="profile_pic" />
         </div>
         <div className="user_info">
-          <List>
+          <List className="user_info_list">
             <List.Item>
               <List.Icon name="users" />
               <List.Content>John Doe</List.Content>
@@ -32,10 +32,10 @@ function Profile() {
       </div>
 
       <div className="flex-container2">
-        <div>
+        <div className="friends">
           <h2>Friends</h2>
         </div>
-        <div>
+        <div className="posts">
           <h2>Posts</h2>
         </div>
       </div>
