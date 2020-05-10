@@ -19,7 +19,6 @@ function Navbar({ loggedIn, setLoggedIn }) {
       <Link to='/' className="logo-img"><img src={Logo} alt='logo' className="logo-img"/></Link>
 
       { loggedIn ? <Link onClick={logout} to='/login' className="login-navbar" >Logout</Link> : <Link to='/login' className="login-navbar" >Login</Link>}
-
     </div>
   );
 }
