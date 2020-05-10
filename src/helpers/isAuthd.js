@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function isAuthd() {
+async function isAuthd() {
     const token = window.localStorage.getItem("token");
     axios.post("https://sample-backend-c-r.herokuapp.com/api/auth/authenticate", { token })
       .then((res) => {
