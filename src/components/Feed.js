@@ -25,6 +25,7 @@ function Feed({setLoggedIn}) {
   return (
     <div className="Feed">
       {userList.map((e) => {
+        console.log(e)
        return <Card className="user-card" key={e.email} user={e} />
       })}
     
