@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import Profile_pic from "../images/profile_pic_.png";
 import { List } from "semantic-ui-react";
 
-function Profile() {
+function Profile({id}) {
+
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+
+  }, [])
+
   return (
     <div className="Profile">
       <div className="flex-container">

@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { isAuthd } from '../helpers/isAuthd'
+
 
 
 function Login({ history, setLoggedIn, ...rest }) {
 
   // useEffect(() => {
-  //   async function getStatus() {
-  //     const status = await isAuthd()
-  //     console.log(status)
-  //     setLoggedIn(status)
-  //   }
-  //   getStatus()
+  //   setLoggedIn(isAuthd())
   // }, [])
 
-
-  
   const [formValues, setFormValue] = useState({
     'username': '',
     'password': ''
