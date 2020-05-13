@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import axios from "axios";
-import ReactModal from "react-modal";
 
 function ProfileForm() {
   const [userProfile, setUserProfile] = useState();
@@ -12,42 +11,8 @@ function ProfileForm() {
     setIsOpen(true);
   }
 
-  const [formValues, setFormValue] = useState({
-    openModal: "",
-    closeModal: "",
-  });
-
-  const handleOpenModal = (event) => {
-    setFormValue({ ...formValues, [event.target.Modal]: event.target.value });
-    return true;
-  };
-
-  const handleCloseModal = (event) => {
-    setFormValue({ ...formValues, [event.target.Modal]: event.target.value });
-    return false;
-  };
-
-  const handleSubmit = (event) => {
-    axios
-      .post()
-      .then((res) => {
-        setUserProfile(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   return (
-    <div>
-      <button onClick={(event) => handleOpenModal(event)}>Trigger Modal</button>
-      {/* <ReactModal 
-           isOpen={this.state.showModal}
-           contentLabel="Minimal Modal Example"
-        >
-          <button onClick={event => handleCloseModal(event)}>Close Modal</button>
-        </ReactModal>
-     */}
       <div>
         <button onClick={openModal}>Open Modal</button>
         {/* <Modal
@@ -70,7 +35,6 @@ function ProfileForm() {
           </form>
         </Modal> */}
       </div>
-    </div>
   );
 }
 
