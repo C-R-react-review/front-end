@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import PrivateRoute from './auth/PrivateRoute';
 import Profile from './components/Profile';
+import ProfileForm from './components/ProfileForm';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='/login' render={(props) => <Login {...props} setLoggedIn={setLoggedIn}/>} />
       <Route path='/register' render={(props) => <Register {...props} setLoggedIn={setLoggedIn}/>}/>
       <Route path='/profile' component={Profile} />
+      <Route path='/profileform' component={ProfileForm} />
       {/* <Route path='/dashboard' component={Dashboard} />  */}
       <Footer />
     </div>
