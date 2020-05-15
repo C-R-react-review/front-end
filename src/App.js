@@ -18,11 +18,12 @@ function App() {
   return (
     <div className="App">
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-      <PrivateRoute exact path='/' component={Feed} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+      <PrivateRoute exact path='/' Component={Feed} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+      <Route path='/feed' component={Feed}/>
       <Route path='/login' render={(props) => <Login {...props} setLoggedIn={setLoggedIn}/>} />
       <Route path='/register' render={(props) => <Register {...props} setLoggedIn={setLoggedIn}/>}/>
       <Route path='/profile' component={Profile} />
-      <Route path='/profileform' component={ProfileForm} />
+      {/* <Route path='/profileform' component={ProfileForm} /> */}
       {/* <Route path='/dashboard' component={Dashboard} />  */}
       <Footer />
     </div>
