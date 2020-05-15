@@ -1,40 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { Button, Form } from "semantic-ui-react";
-import Modal from "react-modal";
-import axios from "axios";
+// import React, { useState, useEffect } from "react";
+// import { Button, Form } from "semantic-ui-react";
+// import Modal from "react-modal";
+// import axios from "axios";
 
-function ProfileForm() {
-  const [userProfile, setUserProfile] = useState();
-  var subtitle;
+// function ProfileForm() {
+//   const [userProfile, setUserProfile] = useState();
+//   var subtitle;
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
-  const [formValues, setFormValues] = useState({
-    email: "",
-    first_name: "",
-    last_name: "",
-    about: "",
-    age: "",
-    location: "",
-  });
+//   const [modalIsOpen, setIsOpen] = React.useState(false);
+//   function openModal() {
+//     setIsOpen(true);
+//   }
+//   const [formValues, setFormValues] = useState({
+//     email: "",
+//     first_name: "",
+//     last_name: "",
+//     about: "",
+//     age: "",
+//     location: "",
+//   });
 
-  const handleChange = (event) => {
-    setFormValues({ ...formValues, [event.target.name]: event.target.value });
-  };
+//   const handleChange = (event) => {
+//     setFormValues({ ...formValues, [event.target.name]: event.target.value });
+//   };
 
-  const handleSubmit = (event) => {
-    console.log(formValues);
-    axios
-      .post("", formValues)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+//   const handleSubmit = (event) => {
+//     console.log(formValues);
+//     axios
+//       .post("", formValues)
+//       .then((res) => {
+//         console.log(res);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
 
   return (
     <div>
@@ -119,4 +119,4 @@ function ProfileForm() {
   );
 }
 
-export default ProfileForm;
+// export default ProfileForm;

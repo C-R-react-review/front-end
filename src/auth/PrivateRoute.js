@@ -14,7 +14,9 @@ const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, .
         setLoggedIn(err)
       })
     }, [setLoggedIn])
-
+ 
+  // const isAuthed = await isAuthd()
+  // console.log(isAuthed)
   return (
     loggedIn ? <Route {...rest} render={props => (<Component {...props} />)} /> : <Redirect to="/login" /> 
   );
