@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { isAuthd } from '../helpers/isAuthd';
 
 
 
 function Login({ history, setLoggedIn, ...rest }) {
 
-  // useEffect(() => {
-  //   setLoggedIn(isAuthd())
-  // }, [])
+  useEffect(() => {
+    setLoggedIn(isAuthd())
+  }, [])
 
   const [formValues, setFormValue] = useState({
     'username': '',

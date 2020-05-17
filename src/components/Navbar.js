@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
 import '../App.css'
-// import { isAuthd } from '../helpers/isAuthd';
+import { isAuthd } from '../helpers/isAuthd';
 
 
 function Navbar({ loggedIn, setLoggedIn }) {
-  // useEffect(() => {
-  //   setLoggedIn(isAuthd())
-  // }, [setLoggedIn])
+  useEffect(() => {
+    setLoggedIn(isAuthd())
+  }, [])
 
   async function logout() {
     localStorage.removeItem('token')
