@@ -39,7 +39,6 @@ import { isAuthd } from '../helpers/isAuthd'
 
 const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, ...rest }) => {
 
-  const [auth, setAuth] = useState(false);
   const [isTokenValidated, setIsTokenValidated] = useState(false);
 
   useEffect(() => {

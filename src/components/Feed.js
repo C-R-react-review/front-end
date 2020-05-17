@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import axios from "axios";
+import { isAuthd } from '../helpers/isAuthd'
 
 function Feed({setLoggedIn}) {
 
   const [userList, setUserList] = useState([]);
   useEffect(() => {
-    // async function getStatus() {
-    //   const status = await isAuthd()
-    //   console.log(status)
-    //   setLoggedIn(status)
-    // }
-    // getStatus()
+  //   isAuthd()
+  //   .then(res =>
+  //     console.log(setLoggedIn())
+  //   )
+
     axios
       .get("https://sample-backend-c-r.herokuapp.com/api/users")
       .then((res) => {
