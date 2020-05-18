@@ -71,7 +71,7 @@ function ProfileForm() {
           contentLabel="Example Modal"
         > 
           <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Update</h2>
-           <button onClick={closeModal}>close</button>
+          
            {/* <div>I am a modal</div> */}
           <Form onSubmit={(event) => handleSubmit(event)}>
             <Form.Field>
@@ -91,7 +91,7 @@ function ProfileForm() {
                 placeholder="first name"
                 value={formValues.first_name}
                 onChange={(event) => handleChange(event)}
-                name="first name"
+                name="first_name"
               />
             </Form.Field>
             <Form.Field>
@@ -101,7 +101,7 @@ function ProfileForm() {
                 placeholder="last name"
                 value={formValues.last_name}
                 onChange={(event) => handleChange(event)}
-                name="last name"
+                name="last_name"
               />
             </Form.Field>
             <Form.Field>
@@ -135,6 +135,7 @@ function ProfileForm() {
               />
             </Form.Field>
             <Button type="update">Update</Button>
+            <Button onClick={closeModal}>Close</Button>
           </Form>
          </Modal> 
       </div>
