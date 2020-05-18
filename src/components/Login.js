@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { isAuthd } from '../helpers/isAuthd';
 
@@ -9,7 +9,10 @@ import { isAuthd } from '../helpers/isAuthd';
 function Login({ history, setLoggedIn, ...rest }) {
 
   useEffect(() => {
-    setLoggedIn(isAuthd())
+    isAuthd()
+    .then(res => {
+      setLoggedIn(res)
+    })
   }, [])
 
   const [formValues, setFormValue] = useState({
@@ -25,7 +28,9 @@ function Login({ history, setLoggedIn, ...rest }) {
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/login', formValues)
     .then(res => {
       localStorage.setItem('token', res.data.token)
+      console.log('hello')
       history.push("/")
+
     })
     .catch(err => {
       console.log(err)
