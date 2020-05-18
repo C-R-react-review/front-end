@@ -64,7 +64,6 @@ const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, .
     } else {
        setIsTokenValidated(true); // in case there is no token
     }
-
   }, [])
 
  if (!isTokenValidated) return <div />; // or some kind of loading animation
