@@ -5,15 +5,9 @@ import '../App.css'
 import { isAuthd } from '../helpers/isAuthd';
 
 
-function Navbar({ loggedIn, setLoggedIn }) {
-  // useEffect(() => {
-  //   isAuthd()
-  //   .then(res => {
-  //     setLoggedIn(res)
-  //   })
-  // }, [])
+function Navbar({ loggedIn }) {
 
-  async function logout() {
+  function logout() {
     localStorage.removeItem('token')
   }
 

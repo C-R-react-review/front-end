@@ -40,28 +40,31 @@ import { isAuthd } from '../helpers/isAuthd'
 const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, isTokenValidated, setIsTokenValidated, ...rest }) => {
 
   useEffect(() => {
-    setIsTokenValidated(false)
     // send jwt to API to see if it's valid
     let token = localStorage.getItem("token");
     if (token) {
       isAuthd()
       .then(async (res) => {
         if (res === true) {
-          await setLoggedIn(true); //not sure if this await is actually needed??
+          console.log('1')
+          setLoggedIn(true); //not sure if this await is actually needed??
           setIsTokenValidated(true)
         }
         else {
+          console.log('2')
           await setLoggedIn(false) //this one too
           setIsTokenValidated(true)
           localStorage.removeItem("token");
         }
       })
       .catch((err) => {
+        console.log('3')
         setLoggedIn(false);
         localStorage.removeItem("token");
       })
     } else {
-       setIsTokenValidated(true); // in case there is no token
+      console.log('4')
+      setIsTokenValidated(true); // in case there is no token
     }
   }, [setIsTokenValidated])
 

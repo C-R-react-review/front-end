@@ -6,7 +6,7 @@ import { isAuthd } from '../helpers/isAuthd';
 
 
 
-function Login({ history, setLoggedIn, ...rest }) {
+function Login({ setLoggedIn, history, ...rest }) {
 
   useEffect(() => {
     isAuthd()
@@ -28,9 +28,8 @@ function Login({ history, setLoggedIn, ...rest }) {
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/login', formValues)
     .then(res => {
       localStorage.setItem('token', res.data.token)
-      console.log('hello')
+      setLoggedIn(true)
       history.push("/")
-
     })
     .catch(err => {
       console.log(err)
