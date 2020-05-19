@@ -7,10 +7,7 @@ function Feed({loggedIn, setLoggedIn}) {
 
   const [userList, setUserList] = useState([]);
   useEffect(() => {
-  //   isAuthd()
-  //   .then(res =>
-  //     console.log(setLoggedIn())
-  //   )
+
     axios
       .get("https://sample-backend-c-r.herokuapp.com/api/users")
       .then((res) => {
@@ -24,6 +21,7 @@ function Feed({loggedIn, setLoggedIn}) {
   return (
     <div className="Feed">
       {userList.map((e) => {
+        console.log(e)
        return <Card className="user-card" key={e.email} user={e} />
       })}
     
