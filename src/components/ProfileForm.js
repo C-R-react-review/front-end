@@ -14,7 +14,6 @@ function ProfileForm() {
   }
   
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
   }
  
@@ -71,8 +70,6 @@ function ProfileForm() {
           contentLabel="Example Modal"
         > 
           <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Update</h2>
-          
-           {/* <div>I am a modal</div> */}
           <Form onSubmit={(event) => handleSubmit(event)}>
             <Form.Field>
               <label>Email</label>
