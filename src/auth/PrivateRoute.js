@@ -37,11 +37,10 @@ import { Route, Redirect } from "react-router-dom";
 import Feed from '../components/Feed'
 import { isAuthd } from '../helpers/isAuthd'
 
-const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, ...rest }) => {
-
-  const [isTokenValidated, setIsTokenValidated] = useState(false);
+const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, isTokenValidated, setIsTokenValidated, ...rest }) => {
 
   useEffect(() => {
+    setIsTokenValidated(false)
     // send jwt to API to see if it's valid
     let token = localStorage.getItem("token");
     if (token) {
@@ -64,7 +63,7 @@ const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, .
     } else {
        setIsTokenValidated(true); // in case there is no token
     }
-  }, [])
+  }, [setIsTokenValidated])
 
  if (!isTokenValidated) return <div />; // or some kind of loading animation
 
