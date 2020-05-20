@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import Profile_pic from "../images/profile_pic_.png";
+import ProfileForm from './ProfileForm';
 import { List } from "semantic-ui-react";
 import axios from "axios";
 
@@ -40,6 +41,9 @@ function Profile({id}) {
               </List.Content>
             </List.Item>
           </List>
+          <div>
+            <ProfileForm />
+          </div>
         </div>
       </div>
 
