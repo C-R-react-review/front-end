@@ -37,9 +37,7 @@ import { Route, Redirect } from "react-router-dom";
 import Feed from '../components/Feed'
 import { isAuthd } from '../helpers/isAuthd'
 
-const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, ...rest }) => {
-
-  const [isTokenValidated, setIsTokenValidated] = useState(false);
+const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, isTokenValidated, setIsTokenValidated, ...rest }) => {
 
   useEffect(() => {
     // send jwt to API to see if it's valid
@@ -48,23 +46,27 @@ const PrivateRoute = ({ component: Component, setLoggedIn, loggedIn, location, .
       isAuthd()
       .then(async (res) => {
         if (res === true) {
-          await setLoggedIn(true); //not sure if this await is actually needed??
+          console.log('1')
+          setLoggedIn(true); //not sure if this await is actually needed??
           setIsTokenValidated(true)
         }
         else {
+          console.log('2')
           await setLoggedIn(false) //this one too
           setIsTokenValidated(true)
           localStorage.removeItem("token");
         }
       })
       .catch((err) => {
+        console.log('3')
         setLoggedIn(false);
         localStorage.removeItem("token");
       })
     } else {
-       setIsTokenValidated(true); // in case there is no token
+      console.log('4')
+      setIsTokenValidated(true); // in case there is no token
     }
-  }, [])
+  }, [setIsTokenValidated])
 
  if (!isTokenValidated) return <div />; // or some kind of loading animation
 

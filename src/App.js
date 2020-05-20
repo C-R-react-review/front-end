@@ -14,16 +14,22 @@ import ProfileForm from './components/ProfileForm';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
-  
+  const [isTokenValidated, setIsTokenValidated] = useState(false);
+
   return (
     <div className="App">
-      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-      <PrivateRoute exact path='/' Component={Feed} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-      <Route path='/feed' component={Feed}/>
+      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Route path='/login' render={(props) => <Login {...props} setLoggedIn={setLoggedIn}/>} />
+      <PrivateRoute exact path='/' Component={Feed} loggedIn={loggedIn} setLoggedIn={setLoggedIn} isTokenValidated={isTokenValidated} setIsTokenValidated={setIsTokenValidated}/>
+      <Route path='/feed' component={Feed}/>
       <Route path='/register' render={(props) => <Register {...props} setLoggedIn={setLoggedIn}/>}/>
+<<<<<<< HEAD
       <Route path='/profile' component={Profile} />
       {/* <Route path='/profileform' component={ProfileForm} /> */}
+=======
+      <Route path='/profile/:id' component={Profile} />
+      <Route path='/profileform' component={ProfileForm} />
+>>>>>>> c462d0b13cfaa64bd827d465af7c4418a058d840
       {/* <Route path='/dashboard' component={Dashboard} />  */}
       <Footer />
     </div>
