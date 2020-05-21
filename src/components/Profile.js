@@ -41,7 +41,7 @@ function Profile({id}) {
               </List.Content>
             </List.Item>
           </List>
-          <div>
+          <div className="profileform">
             <ProfileForm />
           </div>
         </div>
