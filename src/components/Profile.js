@@ -49,7 +49,7 @@ function Profile({ match }) {
               </List.Content>
             </List.Item>
           </List>
-          <div>
+          <div className="profileform">
             <ProfileForm />
           </div>
         </div>
