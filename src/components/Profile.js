@@ -10,9 +10,11 @@ function Profile({id}) {
 
   useEffect(() => {
     axios
-      .get(`https://sample-backend-c-r.herokuapp.com/api/users/21`)
+      .get(`https://sample-backend-c-r.herokuapp.com/api/users/${id}`)
       .then((res) => {
-        setUser(res.data);
+        console.log(id)
+        console.log(res.data)
+        // setUser(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -32,12 +34,12 @@ function Profile({id}) {
           <List className="user_info_list">
             <List.Item>
               <List.Icon name="users" />
-              <List.Content>John Doe</List.Content>
+              <List.Content>{`${user.first_name} ${user.last_name}`}</List.Content>
             </List.Item>
             <List.Item>
               <List.Icon name="mail" />
               <List.Content>
-                <a href="mailto:jack@semantic-ui.com">JohnDoe@gmail.com</a>
+                <a href="mailto:jack@semantic-ui.com">{`${user.email}`}</a>
               </List.Content>
             </List.Item>
           </List>

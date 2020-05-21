@@ -23,7 +23,7 @@ function App() {
       <PrivateRoute exact path='/' Component={Feed} loggedIn={loggedIn} setLoggedIn={setLoggedIn} isTokenValidated={isTokenValidated} setIsTokenValidated={setIsTokenValidated}/>
       <Route path='/feed' component={Feed}/>
       <Route path='/register' render={(props) => <Register {...props} setLoggedIn={setLoggedIn}/>}/>
-      <Route path='/profile' component={Profile} />
+      <Route path='/profile/:id' component={Profile} />
       {/* <Route path='/profileform' component={ProfileForm} /> */}
       {/* <Route path='/dashboard' component={Dashboard} />  */}
       <Footer />
