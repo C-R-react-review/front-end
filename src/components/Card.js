@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 import { Card } from 'semantic-ui-react'
 import Profile from '../components/Profile'
 import '../App.css';
 
-const UserCard = ({ user, history, ...rest }) => {
-
+const UserCard = ({ user, ...rest }) => {
+  const history = useHistory()
   function toProfile(id) {
     // console.log(id)
     history.push(`/profile/${id}`)
