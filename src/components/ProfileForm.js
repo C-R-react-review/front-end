@@ -61,7 +61,7 @@ function ProfileForm() {
   return (
     <div>
       <div>
-        <button onClick={openModal}>Open Modal</button>
+        <button onClick={openModal}>Update</button>
         <Modal
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
