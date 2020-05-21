@@ -133,6 +133,7 @@ function ProfileForm() {
             </Form.Field>
             <Button type="update">Update</Button>
             <Button onClick={closeModal}>Close</Button>
+            {/* {prop1 != null? <Button onClick={closeModal}>Close</Button>: null} */}
           </Form>
          </Modal> 
       </div>

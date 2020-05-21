@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Card } from 'semantic-ui-react'
 import Profile from '../components/Profile'
 import '../App.css';
