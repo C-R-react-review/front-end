@@ -4,17 +4,21 @@ import ProfileForm from './ProfileForm';
 import { List } from "semantic-ui-react";
 import axios from "axios";
 
-function Profile({id}) {
+function Profile({ match }) {
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState()
+  const [isFinished, setIsFinished] = useState(false)
+  const id = match.params.id
+  console.log(id)
 
   useEffect(() => {
     axios
       .get(`https://sample-backend-c-r.herokuapp.com/api/users/${id}`)
       .then((res) => {
         console.log(id)
-        console.log(res.data)
-        // setUser(res.data);
+        console.log(res)
+        setUser(res.data);
+        setIsFinished(true);
       })
       .catch((err) => {
         console.log(err);
@@ -22,7 +26,9 @@ function Profile({id}) {
   }, [])
 
   console.log(user)
-  
+  if (isFinished == false) {
+    return (<div></div>)
+  }
   return (
     <div className="Profile">
       <div className="flex-container">
@@ -58,7 +64,9 @@ function Profile({id}) {
         </div>
       </div>
     </div>
-  );
+  )
+
+
 }
 
 export default Profile;
