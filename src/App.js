@@ -24,7 +24,6 @@ function App() {
       <Route path='/feed' component={Feed}/>
       <Route path='/register' render={(props) => <Register {...props} setLoggedIn={setLoggedIn}/>}/>
       <Route path='/profile/:id' component={Profile} />
-      {/* <Route path='/profileform' component={ProfileForm} /> */}
       {/* <Route path='/dashboard' component={Dashboard} />  */}
       <Footer />
     </div>
