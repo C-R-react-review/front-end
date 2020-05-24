@@ -38,25 +38,25 @@ function ProfileForm() {
   const handleSubmit = (event) => {
     console.log(formValues);
     axios
-      .post("", formValues)
+      .put('https://sample-backend-c-r.herokuapp.com/api/users/1', formValues)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  // const customStyles = {
-  //   content : {
-  //     top                   : '50%',
-  //     left                  : '50%',
-  //     right                 : 'auto',
-  //     bottom                : 'auto',
-  //     marginRight           : '-50%',
-  //     transform             : 'translate(-50%, -50%)'
-  //   }
-  // };
+  const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  };
 
   return (
     <div>
