@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "semantic-ui-react";
 import Modal from "react-modal";
+import { useHistory } from 'react-router-dom';
 import axios from "axios";
+
+
+
 
 function ProfileForm() {
   const [userProfile, setUserProfile] = useState();
@@ -21,6 +25,8 @@ function ProfileForm() {
     setIsOpen(false);
   }
   
+  const history = useHistory();
+  
   const [formValues, setFormValues] = useState({
     email: "",
     first_name: "",
@@ -39,8 +45,10 @@ function ProfileForm() {
     console.log(formValues);
     axios
       .put('https://sample-backend-c-r.herokuapp.com/api/users/1', formValues)
-      .then((res) => {
-        console.log(res.data);
+      .then(res => {
+        localStorage.setItem('token', res.data.token)
+        history.push('/')
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
