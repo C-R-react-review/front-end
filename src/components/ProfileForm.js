@@ -48,7 +48,6 @@ function ProfileForm() {
       .then(res => {
         localStorage.setItem('token', res.data.token)
         history.push('/')
-        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
