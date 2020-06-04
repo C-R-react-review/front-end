@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 
-function ProfileForm() {
+function ProfileForm({ id }) {
   const [userProfile, setUserProfile] = useState();
   var subtitle;
 
@@ -44,7 +44,7 @@ function ProfileForm() {
   const handleSubmit = (event) => {
     console.log(formValues);
     axios
-      .put('https://sample-backend-c-r.herokuapp.com/api/users/1', formValues)
+      .put(`https://sample-backend-c-r.herokuapp.com/api/users/${id}}`, formValues)
       .then(res => {
         localStorage.setItem('token', res.data.token)
         history.push('/')
