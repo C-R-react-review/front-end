@@ -50,7 +50,7 @@ function Profile({ match }) {
             </List.Item>
           </List>
           <div className="profileform">
-            <ProfileForm />
+            <ProfileForm id={id}/>
           </div>
         </div>
       </div>
