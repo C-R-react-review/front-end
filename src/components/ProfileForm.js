@@ -7,13 +7,14 @@ import axios from "axios";
 
 
 
-function ProfileForm({ id }) {
+function ProfileForm({ setUser,user, id }) {
   const [userProfile, setUserProfile] = useState();
   var subtitle;
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
   
   function openModal() {
+    setFormValues({})
     setIsOpen(true);
   }
   
@@ -44,10 +45,11 @@ function ProfileForm({ id }) {
   const handleSubmit = (event) => {
     console.log(formValues);
     axios
-      .put(`https://sample-backend-c-r.herokuapp.com/api/users/${id}}`, formValues)
+      .put(`https://sample-backend-c-r.herokuapp.com/api/users/${id}`, formValues)
       .then(res => {
-        localStorage.setItem('token', res.data.token)
-        history.push('/')
+        console.log(res.data)
+        setUser({...user, ...formValues})
+        closeModal()
       })
       .catch((err) => {
         console.log(err);
