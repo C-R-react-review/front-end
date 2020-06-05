@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "semantic-ui-react";
 import Modal from "react-modal";
-import { useHistory } from 'react-router-dom';
 import axios from "axios";
 
 
 
 
 function ProfileForm({ setUser,user, id }) {
-  const [userProfile, setUserProfile] = useState();
   var subtitle;
-
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [formValues, setFormValues] = useState({});
+  
+  useEffect(() => {
+    if (user.first_name == null || user.last_name == null) {
+      openModal()
+    }
+  },[])
   
   function openModal() {
     setFormValues({})
@@ -21,23 +25,11 @@ function ProfileForm({ setUser,user, id }) {
   function afterOpenModal() {
     subtitle.style.color = '#f00';
   }
- 
+  
   function closeModal(){
     setIsOpen(false);
   }
   
-  const history = useHistory();
-  
-  const [formValues, setFormValues] = useState({
-    email: "",
-    first_name: "",
-    last_name: "",
-    about: "",
-    age: "",
-    location: "",
-  });
-
-
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
@@ -84,7 +76,7 @@ function ProfileForm({ setUser,user, id }) {
               <label>Email</label>
               <input
                 type="text"
-                placeholder="email"
+                placeholder={user.email}
                 value={formValues.email}
                 onChange={(event) => handleChange(event)}
                 name="email"
@@ -94,7 +86,7 @@ function ProfileForm({ setUser,user, id }) {
               <label>First Name</label>
               <input
                 type="text"
-                placeholder="first name"
+                placeholder={user.first_name}
                 value={formValues.first_name}
                 onChange={(event) => handleChange(event)}
                 name="first_name"
@@ -104,7 +96,7 @@ function ProfileForm({ setUser,user, id }) {
               <label>Last Name</label>
               <input
                 type="text"
-                placeholder="last name"
+                placeholder={user.last_name}
                 value={formValues.last_name}
                 onChange={(event) => handleChange(event)}
                 name="last_name"
@@ -114,7 +106,7 @@ function ProfileForm({ setUser,user, id }) {
               <label>About</label>
               <input
                 type="text"
-                placeholder="about"
+                placeholder={user.about}
                 value={formValues.about}
                 onChange={(event) => handleChange(event)}
                 name="about"
@@ -124,7 +116,7 @@ function ProfileForm({ setUser,user, id }) {
               <label>Age</label>
               <input
                 type="number"
-                placeholder="age"
+                placeholder={user.age}
                 value={formValues.age}
                 onChange={(event) => handleChange(event)}
                 name="age"
@@ -134,7 +126,7 @@ function ProfileForm({ setUser,user, id }) {
               <label>Location</label>
               <input
                 type="text"
-                placeholder="location"
+                placeholder={user.location}
                 value={formValues.location}
                 onChange={(event) => handleChange(event)}
                 name="location"
