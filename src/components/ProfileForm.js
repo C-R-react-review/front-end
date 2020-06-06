@@ -10,9 +10,11 @@ function ProfileForm({ setUser,user, id }) {
   var subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [formValues, setFormValues] = useState({});
+  const [isNew, setIsNew] = useState(false);
   
   useEffect(() => {
     if (user.first_name == null || user.last_name == null) {
+      setIsNew(true)
       openModal()
     }
   },[])
@@ -133,8 +135,8 @@ function ProfileForm({ setUser,user, id }) {
               />
             </Form.Field>
             <Button type="update">Update</Button>
-            <Button onClick={closeModal}>Close</Button>
-            {/* {prop1 != null? <Button onClick={closeModal}>Close</Button>: null} */}
+            {/* <Button onClick={closeModal}>Close</Button> */}
+            {!isNew ? <Button onClick={closeModal}>Close</Button>: null}
           </Form>
          </Modal> 
       </div>
