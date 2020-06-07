@@ -1,0 +1,17 @@
+.Navbar {
+    height: 7vh;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-img {
+    height: 100%;
+  }
+  
+  .login-navbar {
+    color: black;
+    font-weight: 600;
+  }
