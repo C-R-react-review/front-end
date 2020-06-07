@@ -29,7 +29,9 @@ function ProfileForm({ setUser,user, id }) {
   }
   
   function closeModal(){
-    setIsOpen(false);
+    if (!isNew ){
+      setIsOpen(false);
+    }
   }
   
   const handleChange = (event) => {
@@ -43,6 +45,7 @@ function ProfileForm({ setUser,user, id }) {
       .then(res => {
         console.log(res.data)
         setUser({...user, ...formValues})
+        setIsNew(false)
         closeModal()
       })
       .catch((err) => {
