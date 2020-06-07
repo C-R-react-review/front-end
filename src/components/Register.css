@@ -1,0 +1,13 @@
+.register-container {
+    width: 50%;
+    margin: 10% auto;
+    background: rgb(235, 235, 235);
+    padding: 3% 5% 4%;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+}
