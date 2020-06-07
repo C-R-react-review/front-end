@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
-import '../App.css'
+import './Navbar.css'
 import { isAuthd } from '../helpers/isAuthd';
 
 

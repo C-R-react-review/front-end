@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
-import { isAuthd } from '../helpers/isAuthd';
 
+import { isAuthd } from '../helpers/isAuthd';
+import './Login.css'
 
 
 function Login({ setLoggedIn, history, ...rest }) {
@@ -14,6 +15,9 @@ function Login({ setLoggedIn, history, ...rest }) {
       setLoggedIn(res)
     })
   }, [])
+
+  const [isFailed, setIsFailed] = useState(false)
+  const [errMessage, setErrMessage] = useState()
 
   const [formValues, setFormValue] = useState({
     'username': '',
@@ -32,14 +36,17 @@ function Login({ setLoggedIn, history, ...rest }) {
       history.push("/")
     })
     .catch(err => {
-      console.log(err)
+      setIsFailed(true)
+      setErrMessage(err.response.data.message)
+      console.log(err.response.data.message)
     })
   };
 
 
 
   return (
-    <Form onSubmit={event => handleSubmit(event)}>
+    <Form className="login-container" onSubmit={event => handleSubmit(event)}>
+      <h2>Welcome!</h2>
       <Form.Field>
         <label>Username</label>
         <input type='text' placeholder='Username' value={formValues.username} onChange={event => handleChange(event)} name='username'/>
@@ -48,8 +55,9 @@ function Login({ setLoggedIn, history, ...rest }) {
         <label>Password</label>
         <input  type='password' placeholder='Password' value={formValues.password} onChange={event => handleChange(event)} name='password'/>
       </Form.Field>
-      <Button type='submit'>Login</Button>
-      <Link to='/register' className="ui button">Not a user? Sign Up</Link>
+      {isFailed ? <div className="error-message">{errMessage}</div>: null}
+      <Button className="login-button" type='submit'>Login</Button>
+      <Link className="login-button" to='/register' className="ui button">Not a user? Sign Up</Link>
     </Form>
   )
 }
