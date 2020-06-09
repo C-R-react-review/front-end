@@ -84,7 +84,7 @@ function Register({ setLoggedIn }) {
     .then(res => {
       localStorage.setItem('token', res.data.token)
       setLoggedIn(true)
-      history.push('/')
+      history.push('/dashboard')
     })
     .catch(err => {
       console.log(err)
