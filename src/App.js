@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import PrivateRoute from './auth/PrivateRoute';
 import Profile from './components/Profile';
+import Dashboard from './components/Dashboard';
 import ProfileForm from './components/ProfileForm';
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
       <Route path='/feed' component={Feed}/>
       <Route path='/register' render={(props) => <Register {...props} setLoggedIn={setLoggedIn}/>}/>
       <Route path='/profile/:id' component={Profile} />
-      {/* <Route path='/dashboard' component={Dashboard} />  */}
+      <Route path='/dashboard' component={Dashboard} /> 
       <Footer />
     </div>
   );
