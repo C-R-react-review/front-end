@@ -49,9 +49,6 @@ function Profile({ match }) {
               </List.Content>
             </List.Item>
           </List>
-          <div className="profileform">
-            <ProfileForm id={id} user={user} setUser={setUser}/>
-          </div>
         </div>
       </div>
 

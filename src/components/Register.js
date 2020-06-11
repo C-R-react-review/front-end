@@ -77,7 +77,7 @@ function Register({ setLoggedIn }) {
 
     if(formValues.password != confirmPassword.password) {
       setIsError(true)
-      setErrorMessage('Passwords do not match')
+      setErrorMessage(['Passwords do not match'])
       return null
     }
     axios.post('https://sample-backend-c-r.herokuapp.com/api/auth/register', formValues)
