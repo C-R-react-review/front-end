@@ -46,7 +46,8 @@ function ProfileForm({ setUser,user, id }) {
         console.log(res.data)
         setUser({...user, ...formValues})
         setIsNew(false)
-        closeModal()
+        setIsOpen(false)
+        // closeModal()
       })
       .catch((err) => {
         console.log(err);
