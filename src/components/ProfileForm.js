@@ -3,6 +3,7 @@ import { Button, Form } from "semantic-ui-react";
 import Modal from "react-modal";
 import axios from "axios";
 
+import './ProfileForm.css'
 
 
 
@@ -76,7 +77,7 @@ function ProfileForm({ setUser,user, id }) {
           style={customStyles}
           contentLabel="Example Modal"
         > 
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Update</h2>
+        {isNew ? <h2 className="form-text" ref={(_subtitle) => (subtitle = _subtitle)}>Welcome! <br/> Please fill out your profile information.</h2> : <h2 className="form-text" ref={(_subtitle) => (subtitle = _subtitle)}>Update</h2>}
           <Form onSubmit={(event) => handleSubmit(event)}>
             <Form.Field>
               <label>Email</label>
