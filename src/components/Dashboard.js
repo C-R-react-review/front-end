@@ -8,15 +8,12 @@ function Dashboard({ match }) {
 
   const [user, setUser] = useState()
   const [isFinished, setIsFinished] = useState(false)
-  const id = match.params.id
-  console.log(id)
 
   useEffect(() => {
     let token = localStorage.getItem('token')
     axios
       .get(`https://sample-backend-c-r.herokuapp.com/api/users/dashboard/${token}`)
       .then((res) => {
-        console.log(id)
         console.log(res)
         setUser(res.data);
         setIsFinished(true);
@@ -51,7 +48,7 @@ function Dashboard({ match }) {
             </List.Item>
           </List>
           <div className="profileform">
-            <ProfileForm id={id} user={user} setUser={setUser}/>
+            <ProfileForm id={user.id} user={user} setUser={setUser}/>
           </div>
         </div>
       </div>

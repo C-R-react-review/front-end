@@ -16,7 +16,7 @@ const UserCard = ({ user, ...rest }) => {
       onClick={() => toProfile(user.id)}
       header={user.username}
       meta={user.email}
-      description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+      description={user.about}
     />
   )
 }
